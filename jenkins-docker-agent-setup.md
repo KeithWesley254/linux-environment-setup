@@ -114,10 +114,10 @@ docker build -t my-jenkins-agent:latest .
 
 1. Navigate to **Manage Jenkins > Nodes**.
 2. Click **New Node**.
-3. Enter a name (e.g., `docker-browser-agent`), select **Permanent Agent**, and click **Create**.
+3. Enter a name (e.g., `multi-browser-mavenjava-agent`), select **Permanent Agent**, and click **Create**.
 4. Fill in the details:
     - Remote root directory: `/home/jenkins/agent`
-    - Labels: `docker browser java maven selenium`
+    - Labels: `multi-browser-mavenjava-agent`
     - Launch method: **Launch agent via Java Web Start**
 5. Click **Save**.
 
@@ -127,8 +127,8 @@ docker build -t my-jenkins-agent:latest .
 
 Go to the node page after saving. Copy the following values:
 
-- **Jenkins URL** (e.g., `http://192.168.1.100:8080/`)
-- **Agent Name** (e.g., `docker-browser-agent`)
+- **Jenkins URL** (e.g., `http://192.168.1.100:8080/` - Find your IP address and make it a string URL (localhost))
+- **Agent Name** (e.g., `multi-browser-mavenjava-agent`)
 - **Secret** (a long token)
 
 ---
@@ -142,7 +142,7 @@ Determine the host IP address:
 docker run -d \
   -e JENKINS_URL="http://192.168.1.100:8080/" \
   -e JENKINS_SECRET="xxxxxxxxxxxxxxxxxxxxx" \
-  -e JENKINS_AGENT_NAME="docker-browser-agent" \
+  -e JENKINS_AGENT_NAME="multi-browser-mavenjava-agent" \
   -v /var/run/docker.sock:/var/run/docker.sock \  # optional
   my-jenkins-agent:latest
 ```
@@ -153,13 +153,13 @@ docker run -d \
 
 In Jenkins:
 - Go to **Manage Jenkins > Nodes**
-- Verify the agent shows as **online** with a green check
+- Verify the agent shows as **online** with a green check (or at least doesnt have a red X)
 
 You can now use the agent with:
 
 ```groovy
 agent {
-  label 'docker browser'
+  label 'multi-browser-mavenjava-agent'
 }
 ```
 
