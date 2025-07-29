@@ -144,7 +144,7 @@ docker run -d \
   -e JENKINS_SECRET="xxxxxxxxxxxxxxxxxxxxx" \
   -e JENKINS_AGENT_NAME="multi-browser-mavenjava-agent" \
   -v /var/run/docker.sock:/var/run/docker.sock \  # optional
-  my-jenkins-agent:latest
+  keithwesley254/maven-docker-agent:latest #my docker hub image
 ```
 
 ---
