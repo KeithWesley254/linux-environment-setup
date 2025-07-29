@@ -165,4 +165,4 @@ agent {
 
 ---
 
-End of Guide.
+![Agent Container Running](assets/images/agent_container_running.png)
